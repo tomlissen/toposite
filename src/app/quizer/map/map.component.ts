@@ -40,12 +40,13 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
     ngAfterViewInit(): void {
         this.map = new Map({
             container: this.mapContainer.nativeElement,
-            style: `https://api.maptiler.com/maps/befa2bdc-5ee9-4d55-a39a-3408cf2c65d7/style.json?key=wsLLu8y9uOpzVQQfad32`,
+            style: `https://api.maptiler.com/maps/befa2bdc-5ee9-4d55-a39a-3408cf2c65d7/style.json?key=5BNqd53oYYyhsEYYsqZk`,
             center: [5.2,52.0],
             zoom: 6.8,
             scrollZoom: false,
             dragPan: false,
-            dragRotate: false
+            dragRotate: false,
+            touchZoomRotate: false
         });
 
         this.map.on('load', () => {
@@ -103,10 +104,22 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
                     this.map.getCanvas().style.cursor = 'default';
                 });
 
-                this.map.on('click', layerId, (event) => {
+//                this.map.on('click', layerId, (event) => {
+                  this.map.on('click',  (event) => {
                   if (this.gameState === 'ongoingClickOnMap') {
-                    const feature = event.features[0];
-                    this.clickedOnAnswer.emit(feature.properties['answer']);
+                    const bbox = [
+                      [event.point.x - 5, event.point.y - 5],
+                      [event.point.x + 5, event.point.y + 5]
+                    ];
+
+                    // Find features intersecting the bounding box.
+                    const selectedFeatures = this.map.queryRenderedFeatures(bbox, {
+                      layers: ['quizerLayerPoint']
+                    });
+                    const feature = selectedFeatures[0];
+                    if (feature) {
+                      this.clickedOnAnswer.emit(feature.properties['answer']);
+                    }
                   }
                 })
 
