@@ -1,0 +1,71 @@
+<div class="row" style="min-height: 800px">
+    <div class="col-7">
+        <app-map
+                [featureCollection]="(currentQuestion$ | async)?.featureCollection || null"
+                (clickedOnAnswer)="clickedOnAnswer($event)"
+                [gameState]="(currentlyInGame$ | async)"
+        ></app-map>
+    </div>
+    <div class="col-4">
+        <ng-container *ngIf="currentQuestion$ | async as currentQuestion">
+
+          <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingTypeAnswer'">
+              <h2>Wat is de naam van de {{currentQuestion.featureCollection.features[0].properties['type']}} die geel is?</h2>
+
+              <form [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
+                        <div class="form-group">
+                            <label for="answer">Antwoord</label>
+                            <input [class.is-valid]="formGroup.get('answer').valid" [class.is-invalid]="!formGroup.get('answer').valid"
+                                   type="text" class="form-control" id="answer" placeholder="Vul hier het antwoord in" formControlName="answer" autocomplete="off">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Versturen</button>
+                    </form>
+          </ng-container>
+
+          <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingClickOnMap'">
+            <h2>Klik op de {{currentQuestion.featureCollection.features[0].properties['type']}} {{currentQuestion.featureCollection.features[0].properties['answer']}}</h2>
+          </ng-container>
+            <hr/>
+
+            <p>Deze set bevat {{(allQuestions$ | async).length}} vragen</p>
+            <p class="text-success">
+                <fa-icon [icon]="faCheck"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).correct}} vragen goed
+            </p>
+            <p class="text-danger">
+                <fa-icon [icon]="faTimesSquare"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).incorrect}} vragen fout
+            </p>
+
+          <br>
+          <h2>Uitleg</h2>
+          <li>(Hoofd)steden zijn zwarte bolletjes</li>
+          <li>Provincies zijn paarse bolletjes</li>
+          <li>Wateren zijn blauwe bolletjes</li>
+        </ng-container>
+
+        <ng-container *ngIf="(currentlyInGame$ | async) == 'finished'">
+            <h2>Klaar :)</h2>
+
+            <p>Je hebt de vragenlijst afgerond met een: {{selectScore$ | async}}</p>
+            <p class="text-success">
+                <fa-icon [icon]="faCheck"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).correct}} vragen goed
+            </p>
+            <p class="text-danger">
+                <fa-icon [icon]="faTimesSquare"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).incorrect}} vragen fout
+            </p>
+
+        </ng-container>
+
+        <ng-container *ngIf="(currentlyInGame$ | async) == 'new'">
+            <h2>Klik op onderstaande knop om te beginnen</h2>
+
+            <button (click)="startQuizer('typeMode')" class="btn btn-primary btn-lg">Starten met Tiepen</button>
+          <br><br>
+          <button (click)="startQuizer('clickMode')" class="btn btn-primary btn-lg">Starten met Klikken</button>
+        </ng-container>
+
+
+    </div>
+</div>
+
+
