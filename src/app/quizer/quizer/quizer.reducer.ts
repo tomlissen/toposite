@@ -33,7 +33,7 @@ export interface QuizerReducerState {
 
 const initialState: QuizerReducerState = {
     gameState: QuizerGameState.new,
-    questions: questionSerieOne.sort((a,b)=>Math.random()<.5?-1:1) ,
+    questions: [],
     currentCustomIndex: 0,
     stats: {
         correct: 0,
@@ -46,6 +46,7 @@ export const quizerReducer = createReducer(
     on(quizerStartNewSession, (_state, {mode}) => ({
         ..._state,
         gameState: mode === 'clickMode' ? QuizerGameState.ongoingClickOnMap : QuizerGameState.ongoingTypeAnswer,
+        questions: questionSerieOne.sort((a,b)=>Math.random()<.5?-1:1),
         currentCustomIndex: 0,
         stats: {
             correct: 0,

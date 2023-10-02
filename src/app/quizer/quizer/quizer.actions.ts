@@ -2,7 +2,7 @@ import {createAction, props} from '@ngrx/store';
 
 export const quizerStartNewSession = createAction(
     '[Quizer] Start new session',
-    props<{ mode: string }>()
+    props<{ mode: string, id: string }>()
 );
 
 export const quizerSubmitQuestionAnswer = createAction(
