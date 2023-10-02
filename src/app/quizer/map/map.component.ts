@@ -104,22 +104,11 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
                     this.map.getCanvas().style.cursor = 'default';
                 });
 
-//                this.map.on('click', layerId, (event) => {
-                  this.map.on('click',  (event) => {
+                this.map.on('click', layerId, (event) => {
                   if (this.gameState === 'ongoingClickOnMap') {
-                    const bbox = [
-                      [event.point.x - 5, event.point.y - 5],
-                      [event.point.x + 5, event.point.y + 5]
-                    ];
 
-                    // Find features intersecting the bounding box.
-                    const selectedFeatures = this.map.queryRenderedFeatures(bbox, {
-                      layers: ['quizerLayerPoint']
-                    });
-                    const feature = selectedFeatures[0];
-                    if (feature) {
-                      this.clickedOnAnswer.emit(feature.properties['answer']);
-                    }
+                    const feature = event.features[0];
+                    this.clickedOnAnswer.emit(feature.properties['answer']);
                   }
                 })
 
