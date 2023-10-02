@@ -1,0 +1,266 @@
+import {QuizerQuestion} from './quizer/quizer/quizer.reducer';
+
+export const questionSerieOne: QuizerQuestion[] = [
+    {
+        title: 'Klik op de plaats Amersfoort',
+        answer: ['Amersfoort'],
+        type: 1,
+        featureCollection: {
+            'type': 'FeatureCollection',
+            'features': [
+                {
+                    'type': 'Feature',
+                    'properties': {'id': 'Utrecht'},
+                    'geometry': {
+                        'coordinates': [
+                            [
+                                [
+                                    4.986300208066609,
+                                    52.155227372452146
+                                ],
+                                [
+                                    4.986300208066609,
+                                    52.019454963882424
+                                ],
+                                [
+                                    5.211185173152984,
+                                    52.019454963882424
+                                ],
+                                [
+                                    5.211185173152984,
+                                    52.155227372452146
+                                ],
+                                [
+                                    4.986300208066609,
+                                    52.155227372452146
+                                ]
+                            ]
+                        ],
+                        'type': 'Polygon'
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {'id': 'Amersfoort'},
+                    'geometry': {
+                        'coordinates': [
+                            [
+                                [
+                                    5.307938006968726,
+                                    52.22335919612175
+                                ],
+                                [
+                                    5.307938006968726,
+                                    52.116706794160365
+                                ],
+                                [
+                                    5.463527023510977,
+                                    52.116706794160365
+                                ],
+                                [
+                                    5.463527023510977,
+                                    52.22335919612175
+                                ],
+                                [
+                                    5.307938006968726,
+                                    52.22335919612175
+                                ]
+                            ]
+                        ],
+                        'type': 'Polygon'
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {'id': 'Ede'},
+                    'geometry': {
+                        'coordinates': [
+                            [
+                                [
+                                    5.579878706573879,
+                                    52.071590608644044
+                                ],
+                                [
+                                    5.579878706573879,
+                                    51.98390447235349
+                                ],
+                                [
+                                    5.739390135297526,
+                                    51.98390447235349
+                                ],
+                                [
+                                    5.739390135297526,
+                                    52.071590608644044
+                                ],
+                                [
+                                    5.579878706573879,
+                                    52.071590608644044
+                                ]
+                            ]
+                        ],
+                        'type': 'Polygon'
+                    }
+                }
+            ]
+        }
+    },
+    {
+        title: 'Welke plaats is dit?',
+        answer: ['Utrecht', 'utrecht'],
+        type: 0,
+        featureCollection: {
+            'type': 'FeatureCollection',
+            'features': [
+                {
+                    'type': 'Feature',
+                    'properties': {},
+                    'geometry': {
+                        'coordinates': [
+                            5.121961158006684,
+                            52.08638189246801
+                        ],
+                        'type': 'Point'
+                    }
+                }
+            ]
+        }
+    },
+    {
+        title: 'Klik op de plaats Amsterdam',
+        answer: ['Amsterdam'],
+        type: 1,
+        featureCollection: {
+            'type': 'FeatureCollection',
+            'features': [
+                {
+                    'type': 'Feature',
+                    'properties': {
+                        'id': 'Amsterdam'
+                    }, 'geometry': {
+                        'coordinates': [
+                            4.8895700675775515,
+                            52.361040889263194
+                        ],
+                        'type': 'Point'
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {
+                        'id': 'Hoogeveen'
+                    },
+                    'geometry': {
+                        'coordinates': [
+                            6.471714831228525,
+                            52.73949022758532
+                        ],
+                        'type': 'Point'
+                    }
+                }
+            ]
+        }
+    },
+    {
+        title: 'Klik op de plaats Ede',
+        answer: ['Ede'],
+        type: 1,
+        featureCollection: {
+            'type': 'FeatureCollection',
+            'features': [
+                {
+                    'type': 'Feature',
+                    'properties': {'id': 'Utrecht'},
+                    'geometry': {
+                        'coordinates': [
+                            [
+                                [
+                                    4.986300208066609,
+                                    52.155227372452146
+                                ],
+                                [
+                                    4.986300208066609,
+                                    52.019454963882424
+                                ],
+                                [
+                                    5.211185173152984,
+                                    52.019454963882424
+                                ],
+                                [
+                                    5.211185173152984,
+                                    52.155227372452146
+                                ],
+                                [
+                                    4.986300208066609,
+                                    52.155227372452146
+                                ]
+                            ]
+                        ],
+                        'type': 'Polygon'
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {'id': 'Amersfoort'},
+                    'geometry': {
+                        'coordinates': [
+                            [
+                                [
+                                    5.307938006968726,
+                                    52.22335919612175
+                                ],
+                                [
+                                    5.307938006968726,
+                                    52.116706794160365
+                                ],
+                                [
+                                    5.463527023510977,
+                                    52.116706794160365
+                                ],
+                                [
+                                    5.463527023510977,
+                                    52.22335919612175
+                                ],
+                                [
+                                    5.307938006968726,
+                                    52.22335919612175
+                                ]
+                            ]
+                        ],
+                        'type': 'Polygon'
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {'id': 'Ede'},
+                    'geometry': {
+                        'coordinates': [
+                            [
+                                [
+                                    5.579878706573879,
+                                    52.071590608644044
+                                ],
+                                [
+                                    5.579878706573879,
+                                    51.98390447235349
+                                ],
+                                [
+                                    5.739390135297526,
+                                    51.98390447235349
+                                ],
+                                [
+                                    5.739390135297526,
+                                    52.071590608644044
+                                ],
+                                [
+                                    5.579878706573879,
+                                    52.071590608644044
+                                ]
+                            ]
+                        ],
+                        'type': 'Polygon'
+                    }
+                }
+            ]
+        }
+    },
+]

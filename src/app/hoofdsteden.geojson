@@ -1,0 +1,173 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Groningen"
+      },
+      "geometry": {
+        "coordinates": [
+          6.569665033582822,
+          53.22073056888877
+        ],
+        "type": "Point"
+      },
+      "id": 0
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Leeuwarden"
+      },
+      "geometry": {
+        "coordinates": [
+          5.780110643756814,
+          53.208710248661305
+        ],
+        "type": "Point"
+      },
+      "id": 1
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Assen"
+      },
+      "geometry": {
+        "coordinates": [
+          6.549591616891945,
+          52.98773952197982
+        ],
+        "type": "Point"
+      },
+      "id": 2
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Zwolle"
+      },
+      "geometry": {
+        "coordinates": [
+          6.08790303301123,
+          52.50981978794988
+        ],
+        "type": "Point"
+      },
+      "id": 3
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Lelystad"
+      },
+      "geometry": {
+        "coordinates": [
+          5.465627115606367,
+          52.51389199669052
+        ],
+        "type": "Point"
+      },
+      "id": 4
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Haarlem"
+      },
+      "geometry": {
+        "coordinates": [
+          4.638988936495423,
+          52.38236788582384
+        ],
+        "type": "Point"
+      },
+      "id": 5
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Den Haag"
+      },
+      "geometry": {
+        "coordinates": [
+          4.293839268299735,
+          52.07968741819087
+        ],
+        "type": "Point"
+      },
+      "id": 6
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Utrecht"
+      },
+      "geometry": {
+        "coordinates": [
+          5.111976546042854,
+          52.09155773530682
+        ],
+        "type": "Point"
+      },
+      "id": 7
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Arnhem"
+      },
+      "geometry": {
+        "coordinates": [
+          5.910999153157292,
+          51.98428366162969
+        ],
+        "type": "Point"
+      },
+      "id": 8
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Den Bosch"
+      },
+      "geometry": {
+        "coordinates": [
+          5.299049153343049,
+          51.68844270068436
+        ],
+        "type": "Point"
+      },
+      "id": 9
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Middelburg"
+      },
+      "geometry": {
+        "coordinates": [
+          3.6090529248018868,
+          51.51118830527801
+        ],
+        "type": "Point"
+      },
+      "id": 10
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Naam": "Maastricht"
+      },
+      "geometry": {
+        "coordinates": [
+          5.691085019668378,
+          50.862424401483565
+        ],
+        "type": "Point"
+      },
+      "id": 11
+    }
+  ]
+}
