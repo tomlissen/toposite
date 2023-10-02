@@ -40,7 +40,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
     ngAfterViewInit(): void {
         this.map = new Map({
             container: this.mapContainer.nativeElement,
-            style: `https://api.maptiler.com/maps/befa2bdc-5ee9-4d55-a39a-3408cf2c65d7/style.json?key=5BNqd53oYYyhsEYYsqZk`,
+            style: `https://api.maptiler.com/maps/befa2bdc-5ee9-4d55-a39a-3408cf2c65d7/style.json?key=wsLLu8y9uOpzVQQfad32`,
             center: [5.2,52.0],
             zoom: 6.8,
             scrollZoom: false,
