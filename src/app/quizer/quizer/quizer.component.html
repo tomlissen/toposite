@@ -4,6 +4,7 @@
                 [featureCollection]="(currentQuestion$ | async)?.featureCollection || null"
                 (clickedOnAnswer)="clickedOnAnswer($event)"
                 [gameState]="(currentlyInGame$ | async)"
+                [allFeatures]="getAllFeatures() | async"
         ></app-map>
     </div>
     <div class="col-4">
@@ -59,9 +60,9 @@
         <ng-container *ngIf="(currentlyInGame$ | async) == 'new'">
             <h2>Klik op onderstaande knop om te beginnen</h2>
 
-            <button (click)="startQuizer('typeMode')" class="btn btn-primary btn-lg">Starten met Tiepen</button>
+            <button (click)="startQuizer('typeMode', 'niets')" class="btn btn-primary btn-lg">Starten met Tiepen</button>
           <br><br>
-          <button (click)="startQuizer('clickMode')" class="btn btn-primary btn-lg">Starten met Klikken</button>
+          <button (click)="startQuizer('clickMode', 'niets')" class="btn btn-primary btn-lg">Starten met Klikken</button>
         </ng-container>
 
 
