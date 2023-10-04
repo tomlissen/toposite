@@ -10,6 +10,12 @@
     <div class="col-4">
         <ng-container *ngIf="currentQuestion$ | async as currentQuestion">
 
+          <h3>Uitleg</h3>
+          <li>(Hoofd)steden zijn zwarte bolletjes</li>
+          <li>Provincies zijn paarse bolletjes</li>
+          <li>Wateren zijn blauwe bolletjes</li>
+          <br><br>
+
           <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingTypeAnswer'">
               <h2>Wat is de naam van de {{currentQuestion.featureCollection.features[0].properties['type']}} die geel is?</h2>
 
@@ -37,11 +43,6 @@
                 <fa-icon [icon]="faTimesSquare"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).incorrect}} vragen fout
             </p>
 
-          <br>
-          <h2>Uitleg</h2>
-          <li>(Hoofd)steden zijn zwarte bolletjes</li>
-          <li>Provincies zijn paarse bolletjes</li>
-          <li>Wateren zijn blauwe bolletjes</li>
         </ng-container>
 
         <ng-container *ngIf="(currentlyInGame$ | async) == 'finished'">
