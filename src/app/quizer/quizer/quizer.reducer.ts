@@ -52,7 +52,7 @@ export const quizerReducer = createReducer(
     initialState,
     on(quizerStartNewSession, (_state, {mode, qid  }) => ({
         ..._state,
-        questions: questionnaires.find(({ id }) => id === qid).questions,
+        questions: questionnaires.find(({ id }) => id === qid).questions.sort((a,b)=>Math.random()<.5?-1:1),
         gameState: mode === 'clickMode' ? QuizerGameState.ongoingClickOnMap : QuizerGameState.ongoingTypeAnswer,
         currentCustomIndex: 0,
         stats: {
