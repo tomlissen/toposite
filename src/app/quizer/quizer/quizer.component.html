@@ -1,10 +1,10 @@
 <div class="row" style="min-height: 800px">
-    <div class="col-7">
+    <div class="col-7" [attr.hidden]="(currentlyInGame$ | async) == 'new' ? true : null">
         <app-map
                 [featureCollection]="(currentQuestion$ | async)?.featureCollection || null"
                 (clickedOnAnswer)="clickedOnAnswer($event)"
                 [gameState]="(currentlyInGame$ | async)"
-                [allFeatures]="getAllFeatures() | async"
+                [allFeatures]="allQuestions$ | async"
         ></app-map>
     </div>
     <div class="col-4">
@@ -58,11 +58,25 @@
         </ng-container>
 
         <ng-container *ngIf="(currentlyInGame$ | async) == 'new'">
-            <h2>Klik op onderstaande knop om te beginnen</h2>
+            <h2>Kies een toets</h2>
 
-            <button (click)="startQuizer('typeMode', 'niets')" class="btn btn-primary btn-lg">Starten met Tiepen</button>
-          <br><br>
-          <button (click)="startQuizer('clickMode', 'niets')" class="btn btn-primary btn-lg">Starten met Klikken</button>
+          <table class="table">
+            <tr>
+              <td>Nederland - Provincies</td>
+              <td><button (click)="startQuizer('typeMode', 1)" class="btn btn-primary btn-sm">Tiepen</button></td>
+              <td><button (click)="startQuizer('clickMode', 1)" class="btn btn-success btn-sm">Klikken</button></td>
+            </tr>
+            <tr>
+              <td>Nederland - Hoofdsteden</td>
+              <td><button (click)="startQuizer('typeMode', 2)" class="btn btn-primary btn-sm">Tiepen</button></td>
+              <td><button (click)="startQuizer('clickMode', 2)" class="btn btn-success btn-sm">Klikken</button></td>
+            </tr>
+            <tr>
+              <td>Nederland - Hoofdsteden en Provincies</td>
+              <td><button (click)="startQuizer('typeMode', 3)" class="btn btn-primary btn-sm">Tiepen</button></td>
+              <td><button (click)="startQuizer('clickMode', 3)" class="btn btn-success btn-sm">Klikken</button></td>
+            </tr>
+          </table>
         </ng-container>
 
 

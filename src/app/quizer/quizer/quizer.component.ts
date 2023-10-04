@@ -1,6 +1,6 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {map, Observable, subscribeOn, tap} from 'rxjs';
+import {Observable, tap} from 'rxjs';
 import {QuizerGameState, QuizerQuestion, QuizerStats} from './quizer.reducer';
 import {selectAllQuestions, selectCurrentlyInGame, selectCurrentQuestion, selectGameStats, selectScore} from './quizer.selectors';
 import {RootState} from '../../app.module';
@@ -44,8 +44,8 @@ export class QuizerComponent implements OnInit {
       ).subscribe();
   }
 
-  startQuizer(mode: string, id: string) {
-        this.store.dispatch(quizerStartNewSession({mode: mode, id: id}));
+  startQuizer(mode: string, qid: number) {
+        this.store.dispatch(quizerStartNewSession({mode: mode, qid: qid}));
     }
 
     handleSubmit() {
@@ -61,12 +61,6 @@ export class QuizerComponent implements OnInit {
 
     clickedOnAnswer(answer: string) {
         this.store.dispatch(quizerSubmitQuestionAnswer({answer}));
-    }
-
-    getAllFeatures(){
-      return this.allQuestions$.pipe(
-        map((questions) => questions.map(value => value.featureCollection.features[0]))
-      )
     }
 }
 

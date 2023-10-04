@@ -1,12 +1,19 @@
 import {createReducer, on} from '@ngrx/store';
 import {FeatureCollection} from 'geojson';
 import {quizerAnsweredCorrect, quizerAnsweredIncorrect, quizerSessionFinished, quizerStartNewSession} from './quizer.actions';
-import {questionSerieOne} from '../../constants';
+import {questionnaires} from "../questionnaires/questionnaires";
 
 export enum QuizerQuestionType {
     clickFeatureOnMap,
     answerHighlightedFeature
 }
+
+export class QuizerQuestionnaireDTO {
+  readonly id: number;
+  readonly title: string;
+  readonly questions: QuizerQuestion[];
+}
+
 
 export interface QuizerQuestion {
     featureCollection: FeatureCollection;
@@ -43,10 +50,10 @@ const initialState: QuizerReducerState = {
 
 export const quizerReducer = createReducer(
     initialState,
-    on(quizerStartNewSession, (_state, {mode}) => ({
+    on(quizerStartNewSession, (_state, {mode, qid  }) => ({
         ..._state,
+        questions: questionnaires.find(({ id }) => id === qid).questions,
         gameState: mode === 'clickMode' ? QuizerGameState.ongoingClickOnMap : QuizerGameState.ongoingTypeAnswer,
-        questions: questionSerieOne.sort((a,b)=>Math.random()<.5?-1:1),
         currentCustomIndex: 0,
         stats: {
             correct: 0,
