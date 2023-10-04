@@ -1,8 +1,8 @@
-import {QuizerQuestion, QuizerQuestionnaireDTO} from "../quizer/quizer.reducer";
+import {QuizerQuestionnaireDTO} from "../quizer/quizer.reducer";
+import {FeatureCollection} from "geojson";
 
-const questions: QuizerQuestion[] = [
+const questions: FeatureCollection =
   {
-    featureCollection: {
       'type': 'FeatureCollection',
       'features': [
         {
@@ -18,14 +18,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -39,14 +32,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -60,14 +46,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -81,14 +60,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -102,14 +74,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -123,14 +88,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -144,14 +102,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -165,14 +116,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -186,14 +130,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -207,14 +144,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -228,14 +158,7 @@ const questions: QuizerQuestion[] = [
             ],
             'type': 'Point'
           }
-        }
-      ]
-    }
-  },
-  {
-    featureCollection: {
-      'type': 'FeatureCollection',
-      'features': [
+        },
         {
           'type': 'Feature',
           'properties': {
@@ -252,7 +175,5 @@ const questions: QuizerQuestion[] = [
         }
       ]
     }
-  },
-]
 
 export const nl_provinces: QuizerQuestionnaireDTO = {id : 1, title : 'test', questions : questions}

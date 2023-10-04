@@ -1,7 +1,7 @@
 <div class="row" style="min-height: 800px">
     <div class="col-7" [attr.hidden]="(currentlyInGame$ | async) == 'new' ? true : null">
         <app-map
-                [featureCollection]="(currentQuestion$ | async)?.featureCollection || null"
+                [feature]="(currentQuestion$ | async) || null"
                 (clickedOnAnswer)="clickedOnAnswer($event)"
                 [gameState]="(currentlyInGame$ | async)"
                 [allFeatures]="allQuestions$ | async"
@@ -17,7 +17,7 @@
           <br><br>
 
           <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingTypeAnswer'">
-              <h2>Wat is de naam van de {{currentQuestion.featureCollection.features[0].properties['type']}} die geel is?</h2>
+              <h2>Wat is de naam van de {{currentQuestion.properties['type']}} die geel is?</h2>
 
               <form [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
                         <div class="form-group">
@@ -31,7 +31,7 @@
           </ng-container>
 
           <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingClickOnMap'">
-            <h2>Klik op de {{currentQuestion.featureCollection.features[0].properties['type']}} {{currentQuestion.featureCollection.features[0].properties['answer']}}</h2>
+            <h2>Klik op de {{currentQuestion.properties['type']}} {{currentQuestion.properties['answer']}}</h2>
           </ng-container>
             <hr/>
 
