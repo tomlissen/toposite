@@ -12,9 +12,8 @@ import {
   ViewChild
 } from '@angular/core';
 import {GeoJSONSource, Map} from 'maplibre-gl';
-import {Feature, FeatureCollection} from 'geojson';
-import {fullFeatureList} from "../../constants";
-import {QuizerGameState} from "../quizer/quizer.reducer";
+import {FeatureCollection} from 'geojson';
+import {QuizerGameState, QuizerQuestion} from "../quizer/quizer.reducer";
 
 @Component({
   selector: 'app-map',
@@ -32,7 +31,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
   featureCollection?: FeatureCollection;
 
   @Input()
-  allFeatures?: Feature[];
+  allFeatures?: QuizerQuestion[];
 
   @Input()
   gameState?: QuizerGameState;
@@ -127,6 +126,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.hasOwnProperty('featureCollection') && this.gameState === 'ongoingTypeAnswer') {
+      console.log("collec change")
       const change: SimpleChange = changes['featureCollection'];
       if (!this.map) {
         return;
@@ -144,6 +144,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
       }
     }
     if (changes.hasOwnProperty('allFeatures') && (this.gameState === 'ongoingTypeAnswer' || this.gameState === 'ongoingClickOnMap')) {
+      console.log("Allfeatures change")
       const change: SimpleChange = changes['allFeatures'];
       if (!this.map) {
         return;
@@ -153,7 +154,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
       if (change.currentValue) {
         source.setData({
           type: 'FeatureCollection',
-          features: change.currentValue
+          features: change.currentValue.map((value: { featureCollection: { features: any[]; }; }) => value.featureCollection.features[0])
         });
       } else {
         source.setData({
