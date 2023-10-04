@@ -125,16 +125,18 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.hasOwnProperty('featureCollection') && this.gameState === 'ongoingTypeAnswer') {
-      const change: SimpleChange = changes['featureCollection'];
+    if (changes.hasOwnProperty('feature') && this.gameState === 'ongoingTypeAnswer') {
+      const change: SimpleChange = changes['feature'];
       if (!this.map) {
         return;
       }
 
       const source = this.map.getSource('quizerHighlightSource') as GeoJSONSource;
-
       if (change.currentValue) {
-        source.setData(change.currentValue);
+        source.setData({
+          type: 'FeatureCollection',
+          features: [change.currentValue]//.map((value: { featureCollection: { features: any[]; }; }) => value.featureCollection.features[0])
+        });
       } else {
         source.setData({
           type: 'FeatureCollection',
