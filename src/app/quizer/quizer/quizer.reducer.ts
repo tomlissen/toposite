@@ -1,5 +1,5 @@
 import {createReducer, on} from '@ngrx/store';
-import {FeatureCollection} from 'geojson';
+import {Feature, FeatureCollection} from 'geojson';
 import {quizerAnsweredCorrect, quizerAnsweredIncorrect, quizerSessionFinished, quizerStartNewSession} from './quizer.actions';
 import {questionnaires} from "../questionnaires/questionnaires";
 
@@ -11,12 +11,12 @@ export enum QuizerQuestionType {
 export class QuizerQuestionnaireDTO {
   readonly id: number;
   readonly title: string;
-  readonly questions: QuizerQuestion[];
+  readonly questions: FeatureCollection;
 }
 
 
 export interface QuizerQuestion {
-    featureCollection: FeatureCollection;
+    features: FeatureCollection;
 }
 
 export interface QuizerStats {
@@ -33,14 +33,14 @@ export enum QuizerGameState {
 
 export interface QuizerReducerState {
     gameState: QuizerGameState;
-    questions: QuizerQuestion[];
+    questions: Feature[];
     currentCustomIndex: number;
     stats: QuizerStats;
 }
 
 const initialState: QuizerReducerState = {
     gameState: QuizerGameState.new,
-    questions: [],
+    questions: null,
     currentCustomIndex: 0,
     stats: {
         correct: 0,
@@ -52,7 +52,7 @@ export const quizerReducer = createReducer(
     initialState,
     on(quizerStartNewSession, (_state, {mode, qid  }) => ({
         ..._state,
-        questions: questionnaires.find(({ id }) => id === qid).questions.sort((a,b)=>Math.random()<.5?-1:1),
+        questions: questionnaires.find(({ id }) => id === qid).questions.features.sort((a,b)=>Math.random()<.5?-1:1),
         gameState: mode === 'clickMode' ? QuizerGameState.ongoingClickOnMap : QuizerGameState.ongoingTypeAnswer,
         currentCustomIndex: 0,
         stats: {

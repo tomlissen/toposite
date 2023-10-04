@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable, tap} from 'rxjs';
-import {QuizerGameState, QuizerQuestion, QuizerStats} from './quizer.reducer';
+import {QuizerGameState, QuizerStats} from './quizer.reducer';
 import {selectAllQuestions, selectCurrentlyInGame, selectCurrentQuestion, selectGameStats, selectScore} from './quizer.selectors';
 import {RootState} from '../../app.module';
 import {quizerStartNewSession, quizerSubmitQuestionAnswer} from './quizer.actions';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {faTimesSquare} from '@fortawesome/free-solid-svg-icons/faTimesSquare';
 import {faCheckSquare} from '@fortawesome/free-regular-svg-icons/faCheckSquare';
+import {Feature} from "geojson";
 
 @Component({
     selector: 'app-quizer',
@@ -20,8 +21,8 @@ export class QuizerComponent implements OnInit {
     faCheck = faCheckSquare;
     faTimesSquare = faTimesSquare;
 
-    currentQuestion$: Observable<QuizerQuestion | null> = this.store.select(selectCurrentQuestion);
-    allQuestions$: Observable<QuizerQuestion[] | null> = this.store.select(selectAllQuestions);
+    currentQuestion$: Observable<Feature | null> = this.store.select(selectCurrentQuestion);
+    allQuestions$: Observable<Feature[] | null> = this.store.select(selectAllQuestions);
     currentlyInGame$: Observable<QuizerGameState> = this.store.select(selectCurrentlyInGame);
     gameStats$: Observable<QuizerStats> = this.store.select(selectGameStats);
     selectScore$: Observable<string | null> = this.store.select(selectScore);
