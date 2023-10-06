@@ -12,11 +12,12 @@ export class QuizerQuestionnaireDTO {
   readonly id: number;
   readonly title: string;
   readonly questions: FeatureCollection;
+  readonly mapBounds: number[][];
 }
 
-
-export interface QuizerQuestion {
-    features: FeatureCollection;
+export interface allQuestions {
+    features: Feature[];
+    mapBounds: number[][];
 }
 
 export interface QuizerStats {
@@ -34,6 +35,7 @@ export enum QuizerGameState {
 export interface QuizerReducerState {
     gameState: QuizerGameState;
     questions: Feature[];
+    mapBounds:  number[][];
     currentCustomIndex: number;
     stats: QuizerStats;
 }
@@ -41,6 +43,7 @@ export interface QuizerReducerState {
 const initialState: QuizerReducerState = {
     gameState: QuizerGameState.new,
     questions: null,
+    mapBounds: null,
     currentCustomIndex: 0,
     stats: {
         correct: 0,
@@ -53,6 +56,7 @@ export const quizerReducer = createReducer(
     on(quizerStartNewSession, (_state, {mode, qid  }) => ({
         ..._state,
         questions: questionnaires.find(({ id }) => id === qid).questions.features.sort((a,b)=>Math.random()<.5?-1:1),
+        mapBounds: questionnaires.find(({ id }) => id === qid).mapBounds,
         gameState: mode === 'clickMode' ? QuizerGameState.ongoingClickOnMap : QuizerGameState.ongoingTypeAnswer,
         currentCustomIndex: 0,
         stats: {

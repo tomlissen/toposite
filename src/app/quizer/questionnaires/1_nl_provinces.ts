@@ -176,4 +176,4 @@ const questions: FeatureCollection =
       ]
     }
 
-export const nl_provinces: QuizerQuestionnaireDTO = {id : 1, title : 'test', questions : questions}
+export const nl_provinces: QuizerQuestionnaireDTO = {id : 1, title : 'test', questions : questions, mapBounds: [[7.216701822903872, 53.53059305288514], [3.0794520793278934, 50.74089933212963]]}
