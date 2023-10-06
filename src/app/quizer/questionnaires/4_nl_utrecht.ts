@@ -176,4 +176,5 @@ const questions: FeatureCollection =
     ]
   }
 
-export const nl_capitals: QuizerQuestionnaireDTO = {id: 2, title: 'Nederland - Hoofdsteden', questions: questions, mapBounds: [[7.216701822903872, 53.53059305288514], [3.0794520793278934, 50.74089933212963]]}
+//Mapbounds are southwestern | northeastern corner of the bounds
+export const nl_utrecht: QuizerQuestionnaireDTO = {id: 4, title: 'Nederland - Provincie Utrecht', questions: questions, mapBounds: [[4.734630573510913, 51.83120127637645], [5.651961210394376, 52.31363096182861]]}

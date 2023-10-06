@@ -62,21 +62,13 @@
             <h2>Kies een toets</h2>
 
           <table class="table">
+          <ng-template ngFor let-questionnaire [ngForOf]="questionnaires" let-i="index">
             <tr>
-              <td>Nederland - Provincies</td>
-              <td><button (click)="startQuizer('typeMode', 1)" class="btn btn-primary btn-sm">Tiepen</button></td>
-              <td><button (click)="startQuizer('clickMode', 1)" class="btn btn-success btn-sm">Klikken</button></td>
+              <td>{{questionnaire.title}}</td>
+              <td><button (click)="startQuizer('typeMode', questionnaire.id)" class="btn btn-primary btn-sm">Tiepen</button></td>
+              <td><button (click)="startQuizer('clickMode', questionnaire.id)" class="btn btn-success btn-sm">Klikken</button></td>
             </tr>
-            <tr>
-              <td>Nederland - Hoofdsteden</td>
-              <td><button (click)="startQuizer('typeMode', 2)" class="btn btn-primary btn-sm">Tiepen</button></td>
-              <td><button (click)="startQuizer('clickMode', 2)" class="btn btn-success btn-sm">Klikken</button></td>
-            </tr>
-            <tr>
-              <td>Nederland - Hoofdsteden en Provincies</td>
-              <td><button (click)="startQuizer('typeMode', 3)" class="btn btn-primary btn-sm">Tiepen</button></td>
-              <td><button (click)="startQuizer('clickMode', 3)" class="btn btn-success btn-sm">Klikken</button></td>
-            </tr>
+          </ng-template>
           </table>
         </ng-container>
 

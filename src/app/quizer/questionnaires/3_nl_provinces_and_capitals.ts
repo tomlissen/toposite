@@ -344,4 +344,4 @@ const questions: FeatureCollection =
         ]
     }
 
-export const nl_provinces_and_capitals: QuizerQuestionnaireDTO = {id : 3, title : 'test', questions : questions, mapBounds: [[7.216701822903872, 53.53059305288514], [3.0794520793278934, 50.74089933212963]]}
+export const nl_provinces_and_capitals: QuizerQuestionnaireDTO = {id : 3, title : 'Nederland - Hoofdsteden en Provincies', questions : questions, mapBounds: [[7.216701822903872, 53.53059305288514], [3.0794520793278934, 50.74089933212963]]}
