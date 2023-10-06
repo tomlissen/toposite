@@ -1,11 +1,12 @@
 import {RootState} from '../../app.module';
-import {QuizerGameState, QuizerStats} from './quizer.reducer';
+import {allQuestions, QuizerGameState, QuizerStats} from './quizer.reducer';
 import {createSelector} from '@ngrx/store';
 import {Feature} from "geojson";
 
 const gameState = (rootState: RootState): QuizerGameState => rootState.quizer.gameState;
 const gameStats = (rootState: RootState): QuizerStats => rootState.quizer.stats;
 const questions = (rootState: RootState): Feature[] => rootState.quizer.questions;
+const mapBounds = (rootState: RootState): number[][] => rootState.quizer.mapBounds;
 const currentIndex = (rootState: RootState): number => rootState.quizer.currentCustomIndex;
 
 export const selectScore = createSelector(
@@ -34,7 +35,11 @@ export const selectGameStats = createSelector(
 export const selectAllQuestions = createSelector(
     gameState,
     questions,
-    (currentlyInGame, questions) => currentlyInGame ? questions : null
+    mapBounds,
+    (currentlyInGame, questions, mapBounds) => {
+      let x: allQuestions = {features : currentlyInGame ? questions : null, mapBounds: mapBounds}
+      return x
+    }
 );
 
 export const selectCurrentQuestion = createSelector(

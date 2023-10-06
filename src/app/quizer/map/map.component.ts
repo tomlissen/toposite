@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import {GeoJSONSource, Map} from 'maplibre-gl';
 import {Feature} from 'geojson';
-import {QuizerGameState} from "../quizer/quizer.reducer";
+import {allQuestions, QuizerGameState} from "../quizer/quizer.reducer";
 
 @Component({
   selector: 'app-map',
@@ -31,7 +31,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
   feature?: Feature;
 
   @Input()
-  allFeatures?: Feature[];
+  allQuestions?: allQuestions;
 
   @Input()
   gameState?: QuizerGameState;
@@ -43,13 +43,16 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
     this.map = new Map({
       container: this.mapContainer.nativeElement,
       style: `https://api.maptiler.com/maps/befa2bdc-5ee9-4d55-a39a-3408cf2c65d7/style.json?key=5BNqd53oYYyhsEYYsqZk`,
-      center: [5.2, 52.0],
-      zoom: 6.8,
+      //center: [5.2, 52.0],
+      //zoom: 6.8,
       scrollZoom: false,
       dragPan: false,
       dragRotate: false,
-      touchZoomRotate: false
+      touchZoomRotate: false,
+      doubleClickZoom: false
     });
+
+
 
     this.map.on('load', () => {
 
@@ -97,6 +100,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
         filter: ['==', ['geometry-type'], 'Point']
       });
 
+
       ['quizerLayerFill', 'quizerLayerPoint'].map((layerId) => {
         this.map.on('mouseenter', layerId, () => {
           this.map.getCanvas().style.cursor = 'pointer';
@@ -113,7 +117,6 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
             this.clickedOnAnswer.emit(feature.properties['answer']);
           }
         })
-
 
       });
     });
@@ -144,8 +147,9 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
         });
       }
     }
-    if (changes.hasOwnProperty('allFeatures') && (this.gameState === 'ongoingTypeAnswer' || this.gameState === 'ongoingClickOnMap')) {
-      const change: SimpleChange = changes['allFeatures'];
+    if (changes.hasOwnProperty('allQuestions') && (this.gameState === 'ongoingTypeAnswer' || this.gameState === 'ongoingClickOnMap')) {
+      console.log(changes)
+      const change: SimpleChange = changes['allQuestions'];
       if (!this.map) {
         return;
       }
@@ -154,14 +158,23 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
       if (change.currentValue) {
         source.setData({
           type: 'FeatureCollection',
-          features: change.currentValue//.map((value: { featureCollection: { features: any[]; }; }) => value.featureCollection.features[0])
+          features: change.currentValue.features//.map((value: { featureCollection: { features: any[]; }; }) => value.featureCollection.features[0])
         });
+        console.log(change.currentValue.mapBounds)
+        this.map.fitBounds(change.currentValue.mapBounds)
       } else {
         source.setData({
           type: 'FeatureCollection',
           features: []
         });
       }
+
+      // this.map.fitBounds([
+      //   [7.216701822903872, 53.53059305288514], // Northeast
+      //   [3.0794520793278934, 50.74089933212963]  // Southwest
+      // ]);
+
+
     }
 
   }

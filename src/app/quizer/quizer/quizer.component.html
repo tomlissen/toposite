@@ -1,10 +1,10 @@
-<div class="row" style="min-height: 800px">
-    <div class="col-7" [attr.hidden]="(currentlyInGame$ | async) == 'new' ? true : null">
+<div class="row" style="min-height: 650px">
+    <div class="col-7" [attr.hidden]="(currentlyInGame$ | async) == 'new' ? null : null">
         <app-map
                 [feature]="(currentQuestion$ | async) || null"
                 (clickedOnAnswer)="clickedOnAnswer($event)"
                 [gameState]="(currentlyInGame$ | async)"
-                [allFeatures]="allQuestions$ | async"
+                [allQuestions]="allQuestions$ | async"
         ></app-map>
     </div>
     <div class="col-4">
@@ -35,7 +35,7 @@
           </ng-container>
             <hr/>
 
-            <p>Deze set bevat {{(allQuestions$ | async).length}} vragen</p>
+            <p>Deze set bevat {{(allQuestions$ | async).features.length}} vragen</p>
             <p class="text-success">
                 <fa-icon [icon]="faCheck"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).correct}} vragen goed
             </p>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable, tap} from 'rxjs';
-import {QuizerGameState, QuizerStats} from './quizer.reducer';
+import {allQuestions, QuizerGameState, QuizerStats} from './quizer.reducer';
 import {selectAllQuestions, selectCurrentlyInGame, selectCurrentQuestion, selectGameStats, selectScore} from './quizer.selectors';
 import {RootState} from '../../app.module';
 import {quizerStartNewSession, quizerSubmitQuestionAnswer} from './quizer.actions';
@@ -22,7 +22,7 @@ export class QuizerComponent implements OnInit {
     faTimesSquare = faTimesSquare;
 
     currentQuestion$: Observable<Feature | null> = this.store.select(selectCurrentQuestion);
-    allQuestions$: Observable<Feature[] | null> = this.store.select(selectAllQuestions);
+    allQuestions$: Observable<allQuestions | null> = this.store.select(selectAllQuestions);
     currentlyInGame$: Observable<QuizerGameState> = this.store.select(selectCurrentlyInGame);
     gameStats$: Observable<QuizerStats> = this.store.select(selectGameStats);
     selectScore$: Observable<string | null> = this.store.select(selectScore);
