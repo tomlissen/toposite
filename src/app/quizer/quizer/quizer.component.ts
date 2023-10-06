@@ -9,6 +9,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {faTimesSquare} from '@fortawesome/free-solid-svg-icons/faTimesSquare';
 import {faCheckSquare} from '@fortawesome/free-regular-svg-icons/faCheckSquare';
 import {Feature} from "geojson";
+import {questionnaires} from "../questionnaires/questionnaires";
 
 @Component({
     selector: 'app-quizer',
@@ -63,5 +64,7 @@ export class QuizerComponent implements OnInit {
     clickedOnAnswer(answer: string) {
         this.store.dispatch(quizerSubmitQuestionAnswer({answer}));
     }
+
+  protected readonly questionnaires = questionnaires;
 }
 
