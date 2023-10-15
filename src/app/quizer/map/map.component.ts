@@ -24,6 +24,8 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
 
   private map: Map | null = null;
 
+  private disableClick: boolean = false;
+
   @ViewChild('map')
   private mapContainer!: ElementRef<HTMLElement>;
 
@@ -42,7 +44,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.map = new Map({
       container: this.mapContainer.nativeElement,
-      style: `https://api.maptiler.com/maps/befa2bdc-5ee9-4d55-a39a-3408cf2c65d7/style.json?key=5BNqd53oYYyhsEYYsqZk`,
+      style: `https://api.maptiler.com/maps/c8113e09-7452-487c-a2bc-c848d1e485b0/style.json?key=5BNqd53oYYyhsEYYsqZk`,
       //center: [5.2, 52.0],
       //zoom: 6.8,
       scrollZoom: false,
@@ -111,10 +113,16 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
         });
 
         this.map.on('click', layerId, (event) => {
-          if (this.gameState === 'ongoingClickOnMap') {
+          if (!this.disableClick && this.gameState === 'ongoingClickOnMap') {
 
             const feature = event.features[0];
             this.clickedOnAnswer.emit(feature.properties['answer']);
+
+            // Set timeout to prevent another click for 1 second.
+            this.disableClick = true;
+            setTimeout(() => {
+              this.disableClick = false;
+              }, 1000);
           }
         })
 
@@ -148,7 +156,6 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
       }
     }
     if (changes.hasOwnProperty('allQuestions') && (this.gameState === 'ongoingTypeAnswer' || this.gameState === 'ongoingClickOnMap')) {
-      console.log(changes)
       const change: SimpleChange = changes['allQuestions'];
       if (!this.map) {
         return;
@@ -160,7 +167,6 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
           type: 'FeatureCollection',
           features: change.currentValue.features//.map((value: { featureCollection: { features: any[]; }; }) => value.featureCollection.features[0])
         });
-        console.log(change.currentValue.mapBounds)
         this.map.fitBounds(change.currentValue.mapBounds)
       } else {
         source.setData({
@@ -168,13 +174,6 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
           features: []
         });
       }
-
-      // this.map.fitBounds([
-      //   [7.216701822903872, 53.53059305288514], // Northeast
-      //   [3.0794520793278934, 50.74089933212963]  // Southwest
-      // ]);
-
-
     }
 
   }
