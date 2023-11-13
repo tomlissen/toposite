@@ -136,7 +136,7 @@ const questions: FeatureCollection =
           "type": "Feature",
           "properties":
             {
-              "answer": "Ijssel",
+              "answer": "IJssel",
               "type": "water"
             },
           "geometry":
