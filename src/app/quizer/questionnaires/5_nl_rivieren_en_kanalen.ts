@@ -46,7 +46,7 @@ const questions: FeatureCollection =
           "type": "Feature",
           "properties":
             {
-              "answer": "Zwarte water",
+              "answer": "Zwarte Water",
               "type": "water"
             },
           "geometry":
