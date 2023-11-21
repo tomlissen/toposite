@@ -38,7 +38,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Ijsselmeer",
+          "answer": "IJsselmeer",
           "type": "water"
         },
         "geometry": {
@@ -143,7 +143,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Zwarte meer",
+          "answer": "Zwarte Meer",
           "type": "water"
         },
         "geometry": {
