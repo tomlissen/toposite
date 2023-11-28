@@ -339,7 +339,7 @@ const questions: FeatureCollection =
         {
           "type": "Feature",
           "properties": {
-            "answer": "Markemeer",
+            "answer": "Markermeer",
             "type": "water"
           },
           "geometry": {
@@ -474,7 +474,7 @@ const questions: FeatureCollection =
         {
           "type": "Feature",
           "properties": {
-            "answer": "Hollands diep",
+            "answer": "Hollands Diep",
             "type": "water"
           },
           "geometry": {
