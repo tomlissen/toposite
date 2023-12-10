@@ -98,7 +98,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "schiermonnikoog",
+          "answer": "Schiermonnikoog",
           'type': 'plaats'
         },
         "geometry": {
@@ -113,7 +113,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "schiermonnikoog",
+          "answer": "Schiermonnikoog",
           'type': 'gebied'
         },
         "geometry": {
@@ -218,7 +218,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Hemmer",
+          "answer": "Lemmer",
           'type': 'plaats'
         },
         "geometry": {
