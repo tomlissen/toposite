@@ -13,11 +13,12 @@
           <h3>Uitleg</h3>
           <li>(Hoofd)steden zijn zwarte bolletjes</li>
           <li>Provincies zijn paarse bolletjes</li>
+          <li>Gebieden zijn paarse bolletjes</li>
           <li>Wateren zijn blauwe bolletjes</li>
           <br><br>
 
           <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingTypeAnswer'">
-              <h2>Wat is de naam van de {{currentQuestion.properties['type']}} die geel is?</h2>
+              <h2>Wat is de naam van de/het {{currentQuestion.properties['type']}} die Wit is?</h2>
 
               <form [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
                         <div class="form-group">
@@ -31,7 +32,7 @@
           </ng-container>
 
           <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingClickOnMap'">
-            <h2>Klik op de {{currentQuestion.properties['type']}} {{currentQuestion.properties['answer']}}</h2>
+            <h2>Klik op de/het {{currentQuestion.properties['type']}} {{currentQuestion.properties['answer']}}</h2>
           </ng-container>
             <hr/>
 
