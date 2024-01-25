@@ -86,7 +86,7 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
         'layout': {},
         'paint': {
           'circle-radius': ['match', ['get', 'type'], 'hoofdstad', 10, 'provincie', 10, /* other */ 7],
-          'circle-color': ['match', ['get', 'type'], 'hoofdstad', 'black', 'provincie', 'purple', 'gebied', 'purple', /* other */ 'black']
+          'circle-color': ['match', ['get', 'type'], 'hoofdstad', 'black', 'provincie', 'purple', 'gebied', 'purple', 'water', 'blue', /* other */ 'black']
         },
         filter: ['==', ['geometry-type'], 'Point']
       });
