@@ -7,6 +7,16 @@ import {nl_rivieren_en_kanalen} from "./5_nl_rivieren_en_kanalen"
 import {nl_wateren} from "./6_nl_wateren"
 import {nl_friesland} from "./7_nl_friesland"
 import {nl_groningen} from "./8_nl_groningen";
+import {nl_drenthe} from "./9_nl_drenthe";
+import {nl_noordholland} from "./10_nl_noordholland";
+import {nl_flevoland} from "./11_nl_flevoland";
+import {nl_overijssel} from "./12_nl_overijssel";
+import {nl_zuidholland} from "./13_nl_zuidholland";
+import {nl_utrecht} from "./14_nl_utrecht";
+import {nl_gelderland} from "./15_nl_gelderland";
+import {nl_zeeland} from "./16_nl_zeeland";
+import {nl_noordbrabant} from "./17_nl_noordbrabant";
+import {nl_limburg} from "./18_nl_limburg";
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -16,5 +26,15 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_rivieren_en_kanalen,
   nl_wateren,
   nl_friesland,
-  nl_groningen
+  nl_groningen,
+  // nl_drenthe,
+  // nl_noordholland,
+  nl_flevoland,
+  nl_overijssel,
+  // nl_zuidholland,
+  // nl_utrecht,
+  // nl_gelderland,
+  // nl_zeeland,
+  // nl_noordbrabant,
+  // nl_limburg
 ];
