@@ -83,8 +83,8 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "plaats",
-          "type": "Kampen"
+          "answer": "Kampen",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
