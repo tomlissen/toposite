@@ -27,7 +27,7 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_wateren,
   nl_friesland,
   nl_groningen,
-  // nl_drenthe,
+  nl_drenthe,
   // nl_noordholland,
   nl_flevoland,
   nl_overijssel,
