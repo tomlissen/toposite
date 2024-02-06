@@ -73,8 +73,8 @@ const questions: FeatureCollection =
         },
         "geometry": {
           "coordinates": [
-            6.447480461966279,
-            52.73520872988141
+            6.474548188663277,
+            52.72010166412616
           ],
           "type": "Point"
         },
@@ -105,6 +105,21 @@ const questions: FeatureCollection =
           "coordinates": [
             6.899714188619129,
             52.69958080643909
+          ],
+          "type": "Point"
+        },
+        "id": 6
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "answer": "Westerbork",
+          'type': 'plaats'
+        },
+        "geometry": {
+          "coordinates": [
+            6.61007620992163,
+            52.8492656710028
           ],
           "type": "Point"
         },
