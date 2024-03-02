@@ -32,7 +32,7 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_overijssel,
   nl_drenthe,
   // nl_zuidholland,
-  // nl_utrecht,
+  nl_utrecht,
   // nl_gelderland,
   // nl_zeeland,
   // nl_noordbrabant,
