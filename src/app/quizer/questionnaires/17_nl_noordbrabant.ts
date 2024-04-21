@@ -8,27 +8,28 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Lauwersoog",
-          'type': 'plaats'
+          "answer": "Biesbosch",
+          "type": "gebied"
         },
         "geometry": {
           "coordinates": [
-            6.202267054346663,
-            53.388365920214994
+            4.848341707152201,
+            51.755521759103175
           ],
           "type": "Point"
-        }
+        },
+        "id": 0
       },
       {
         "type": "Feature",
         "properties": {
-          "answer": "Winschoten",
-          'type': 'plaats'
+          "answer": "Den Bosch",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
-            7.0125087535652995,
-            53.101569409483034
+            5.313454825799255,
+            51.71450575378188
           ],
           "type": "Point"
         },
@@ -37,13 +38,13 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Ter Apel",
-          'type': 'plaats'
+          "answer": "Oss",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
-            7.077053431299817,
-            52.851013270494406
+            5.480534295605139,
+            51.74433926750925
           ],
           "type": "Point"
         },
@@ -52,28 +53,13 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Groningen",
-          'type': 'plaats'
+          "answer": "Kaatsheuvel",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
-            6.522138817439156,
-            53.21370517312096
-          ],
-          "type": "Point"
-        },
-        "id": 3
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "answer": "Pieterburen",
-          'type': 'plaats'
-        },
-        "geometry": {
-          "coordinates": [
-            6.43562148345481,
-            53.41716798920328
+            5.06358823131572,
+            51.62208359394961
           ],
           "type": "Point"
         },
@@ -82,13 +68,13 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Delfzijl",
-          'type': 'plaats'
+          "answer": "Loonse en Drunense Duinen",
+          "type": "gebied"
         },
         "geometry": {
           "coordinates": [
-            6.927259667048446,
-            53.32786225539684
+            5.176479764968036,
+            51.62208359394961
           ],
           "type": "Point"
         },
@@ -97,13 +83,13 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Stadskanaal",
-          'type': 'plaats'
+          "answer": "Bergen op Zoom",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
-            6.9808180166580485,
-            52.95966559889291
+            4.241737866326844,
+            51.51542440232657
           ],
           "type": "Point"
         },
@@ -112,13 +98,13 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Hoogezand",
-          'type': 'plaats'
+          "answer": "Roosendaal",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
-            6.736372215876656,
-            53.12397296471272
+            4.5789072468351435,
+            51.51355095459704
           ],
           "type": "Point"
         },
@@ -127,13 +113,13 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Hondsrug",
-          'type': 'gebied'
+          "answer": "Breda",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
-            6.663587792048844,
-            53.120676469770416
+            4.812216416383478,
+            51.591234296693045
           ],
           "type": "Point"
         },
@@ -142,13 +128,13 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Rottumerplaat",
-          'type': 'gebied'
+          "answer": "Tilburg",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
-            6.480940086970321,
-            53.536495311266975
+            5.084661317597096,
+            51.54913328689224
           ],
           "type": "Point"
         },
@@ -157,20 +143,80 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Rottumeroog",
-          'type': 'gebied'
+          "answer": "Veghel",
+          "type": "plaats"
         },
         "geometry": {
           "coordinates": [
-            6.586683495173645,
-            53.53812760272368
+            5.466987311566498,
+            51.58749356347718
           ],
           "type": "Point"
         },
         "id": 10
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "answer": "Helmond",
+          "type": "plaats"
+        },
+        "geometry": {
+          "coordinates": [
+            5.682233835730045,
+            51.49481223924866
+          ],
+          "type": "Point"
+        },
+        "id": 11
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "answer": "Eindhoven",
+          "type": "plaats"
+        },
+        "geometry": {
+          "coordinates": [
+            5.5422483340013855,
+            51.4244734123931
+          ],
+          "type": "Point"
+        },
+        "id": 12
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "answer": "Groote Peel",
+          "type": "gebied"
+        },
+        "geometry": {
+          "coordinates": [
+            5.795125369382362,
+            51.3399236848758
+          ],
+          "type": "Point"
+        },
+        "id": 13
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "answer": "Maas",
+          "type": "water"
+        },
+        "geometry": {
+          "coordinates": [
+            5.769738089313336,
+            51.752376182938946
+          ],
+          "type": "Point"
+        },
+        "id": 13
       }
     ]
   }
 
 //Mapbounds are southwestern | northeastern corner of the bounds
-export const nl_noordbrabant: QuizerQuestionnaireDTO = {id: 17, title: 'Nederland - Provincie Noord-Brabant', questions: questions, mapBounds: [[4.066561744105002, 51.20431594387648], [6.112185050921653, 51.840703018258665]]}
+export const nl_noordbrabant: QuizerQuestionnaireDTO = {id: 17, title: 'Nederland - Provincie Noord-Brabant', questions: questions, mapBounds: [[4.030403235479582, 51.22876569760086], [6.0998388399788155, 51.836097942463056]]}
