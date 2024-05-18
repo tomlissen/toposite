@@ -36,5 +36,5 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   // nl_gelderland,
   nl_zeeland,
   nl_noordbrabant,
-  // nl_limburg
+  nl_limburg
 ];
