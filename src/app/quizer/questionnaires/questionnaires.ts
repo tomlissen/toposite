@@ -17,6 +17,7 @@ import {nl_gelderland} from "./15_nl_gelderland";
 import {nl_zeeland} from "./16_nl_zeeland";
 import {nl_noordbrabant} from "./17_nl_noordbrabant";
 import {nl_limburg} from "./18_nl_limburg";
+import {eu_landen} from "./19_eu_landen"
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -36,5 +37,6 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_zeeland,
   nl_noordbrabant,
   nl_limburg,
-  nl_gelderland
+  nl_gelderland,
+  eu_landen
 ];
