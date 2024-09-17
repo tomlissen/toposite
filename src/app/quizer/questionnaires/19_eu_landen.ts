@@ -428,7 +428,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Zwiitserland"
+          "answer": "Zwitserland"
         },
         "geometry": {
           "coordinates": [
@@ -620,6 +620,20 @@ const questions: FeatureCollection =
           "type": "Point"
         },
         "id": 43
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "answer": "Noord-Ierland"
+        },
+        "geometry": {
+          "coordinates": [
+            -6.85967450210228,
+            54.65950610121422
+          ],
+          "type": "Point"
+        },
+        "id": 44
       }
     ]
   }
