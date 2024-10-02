@@ -634,6 +634,20 @@ const questions: FeatureCollection =
           "type": "Point"
         },
         "id": 44
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "answer": "Albanie"
+        },
+        "geometry": {
+          "coordinates": [
+            19.84454130440733,
+            40.76933620312283
+          ],
+          "type": "Point"
+        },
+        "id": 44
       }
     ]
   }
