@@ -19,6 +19,7 @@ import {nl_noordbrabant} from "./17_nl_noordbrabant";
 import {nl_limburg} from "./18_nl_limburg";
 import {eu_landen} from "./19_eu_landen"
 import {eu_hoofdsteden} from "./20_eu_hoofdsteden";
+import {eu_zee_en_meren} from "./21_eu_zee_en_meren";
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -40,5 +41,6 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_limburg,
   nl_gelderland,
   eu_landen,
-  eu_hoofdsteden
+  eu_hoofdsteden,
+  eu_zee_en_meren
 ];
