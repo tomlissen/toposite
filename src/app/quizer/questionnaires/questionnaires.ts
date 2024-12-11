@@ -21,6 +21,7 @@ import {eu_landen} from "./19_eu_landen"
 import {eu_hoofdsteden} from "./20_eu_hoofdsteden";
 import {eu_zee_en_meren} from "./21_eu_zee_en_meren";
 import {eu_rivieren} from "./22_eu_rivieren";
+import {eu_gebergten_en_wateren} from "./23_eu_gebergten_en_wateren";
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -44,5 +45,6 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   eu_landen,
   eu_hoofdsteden,
   eu_zee_en_meren,
-  eu_rivieren
+  eu_rivieren,
+  eu_gebergten_en_wateren
 ];
