@@ -68,7 +68,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "praag",
+          "answer": "Praag",
           "type": "stad"
         },
         "geometry": {
@@ -203,7 +203,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answet": "Rusland",
+          "answer": "Rusland",
           "type": "land"
         },
         "geometry": {
