@@ -24,6 +24,7 @@ import {eu_rivieren} from "./22_eu_rivieren";
 import {eu_gebergten_en_wateren} from "./23_eu_gebergten_en_wateren";
 import {eu_noord_europa_gemend} from "./24_eu_noord_europa_gemend";
 import {eu_oost_europa_gemend} from "./25_eu_oost_europa_gemend";
+import {eu_zuid_europa_gemend_1} from "./26_eu_zuid_europa_gemend_1"
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -50,5 +51,6 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   eu_rivieren,
   eu_gebergten_en_wateren,
   eu_noord_europa_gemend,
-  eu_oost_europa_gemend
+  eu_oost_europa_gemend,
+  eu_zuid_europa_gemend_1
 ];
