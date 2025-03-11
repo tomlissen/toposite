@@ -234,4 +234,4 @@ const questions: FeatureCollection =
   }
 
 //Mapbounds are southwestern | northeastern corner of the bounds
-export const eu_oost_europa_gemend: QuizerQuestionnaireDTO = {id: 25, title: 'Europa - Oost Europa Gemend', questions: questions, mapBounds: [[7.932842664625753, 40.35724433498774], [73.47423726658855, 69.27713930002562]]}
+export const eu_oost_europa_gemengd: QuizerQuestionnaireDTO = {id: 25, title: 'Europa - Oost Europa Gemengd', questions: questions, mapBounds: [[7.932842664625753, 40.35724433498774], [73.47423726658855, 69.27713930002562]]}
