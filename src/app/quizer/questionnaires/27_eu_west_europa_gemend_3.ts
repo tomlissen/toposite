@@ -173,7 +173,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "answer": "Middellandse zee",
+          "answer": "Middellandse Zee",
           "type": "water"
         },
         "geometry": {
