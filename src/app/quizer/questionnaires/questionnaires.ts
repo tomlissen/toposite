@@ -28,6 +28,7 @@ import {eu_zuid_europa_gemengd_1} from "./26_eu_zuid_europa_gemengd_1";
 import {eu_west_europa_gemengd_3} from "./27_eu_west_europa_gemend_3";
 import {eu_landen_hoofdsteden} from "./28_eu_landen_hoofdsteden";
 import {world_werelddelen_gebieden} from "./29_world_werelddelen_gebieden";
+import {world_noord_amerika} from "./30_world_noord_amerika"
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -58,5 +59,6 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   eu_zuid_europa_gemengd_1,
   eu_west_europa_gemengd_3,
   eu_landen_hoofdsteden,
-  world_werelddelen_gebieden
+  world_werelddelen_gebieden,
+  world_noord_amerika
 ];

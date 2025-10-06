@@ -97,8 +97,11 @@ export class MapComponent implements OnChanges, AfterViewInit, OnDestroy {
         'layout': {},
         'paint': {
           'circle-radius': 12,
-          'circle-color': 'white'
-        },
+          'circle-color': 'white',
+          'circle-stroke-width': 1,
+          'circle-stroke-color': '#000'
+
+    },
         filter: ['==', ['geometry-type'], 'Point']
       });
 
