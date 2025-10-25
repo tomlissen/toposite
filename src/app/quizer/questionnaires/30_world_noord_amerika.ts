@@ -9,7 +9,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Alaska",
-          "type": "land"
+          "type": "provincie"
         },
         "geometry": {
           "coordinates": [
@@ -24,7 +24,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Canada",
-          "type": "land"
+          "type": "provincie"
         },
         "geometry": {
           "coordinates": [
@@ -39,7 +39,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Verenigde Staten",
-          "type": "land"
+          "type": "provincie"
         },
         "geometry": {
           "coordinates": [
@@ -54,7 +54,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Bermuda Eilanden",
-          "type": "land"
+          "type": "provincie"
         },
         "geometry": {
           "coordinates": [
@@ -69,7 +69,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Groenland",
-          "type": "land"
+          "type": "provincie"
         },
         "geometry": {
           "coordinates": [
@@ -84,7 +84,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Hawai",
-          "type": "land"
+          "type": "provincie"
         },
         "geometry": {
           "coordinates": [
@@ -99,7 +99,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Mexico",
-          "type": "land"
+          "type": "provincie"
         },
         "geometry": {
           "coordinates": [
@@ -114,7 +114,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Anchorage",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -129,7 +129,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Atlanta",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -144,7 +144,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Calgary",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -159,7 +159,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Cancun",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -174,7 +174,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Detroit",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -189,7 +189,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Chicago",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -204,7 +204,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Hamilton",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -219,7 +219,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Honolulu",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -234,7 +234,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Los Angeles",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -249,7 +249,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Mexicostad",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -264,7 +264,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Montreal",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -279,7 +279,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "New Orleans",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -294,7 +294,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "New York",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -309,7 +309,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Nuuk",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -324,7 +324,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Ottawa",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -339,7 +339,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Seattle",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -354,7 +354,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "San Francisco",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -369,7 +369,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Vancouver",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -384,7 +384,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Washington D.C.",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
@@ -399,7 +399,7 @@ const questions: FeatureCollection =
         "type": "Feature",
         "properties": {
           "answer": "Winnipeg",
-          "type": "steden"
+          "type": "stad"
         },
         "geometry": {
           "coordinates": [
