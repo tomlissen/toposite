@@ -30,6 +30,7 @@ import {eu_landen_hoofdsteden} from "./28_eu_landen_hoofdsteden";
 import {world_werelddelen_gebieden} from "./29_world_werelddelen_gebieden";
 import {world_noord_amerika} from "./30_world_noord_amerika"
 import {world_noord_amerika_water_gebied} from "./31_world_noord_amerika_water_gebied"
+import {world_midden_amerika} from "./32_world_midden_amerika"
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -62,5 +63,6 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   eu_landen_hoofdsteden,
   world_werelddelen_gebieden,
   world_noord_amerika,
-  world_noord_amerika_water_gebied
+  world_noord_amerika_water_gebied,
+  world_midden_amerika
 ];
