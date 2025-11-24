@@ -22,7 +22,10 @@ const questions: FeatureCollection =
       },
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          "answer": "Belmopan",
+          "type": "stad"
+        },
         "geometry": {
           "coordinates": [
             -88.08665690442572,
@@ -30,6 +33,21 @@ const questions: FeatureCollection =
           ],
           "type": "Point"
         }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "answer": "Havana",
+          "type": "stad"
+        },
+        "geometry": {
+          "coordinates": [
+            -82.36133431823855,
+            23.143569491637507
+          ],
+          "type": "Point"
+        },
+        "id": 16
       },
       {
         "type": "Feature",
