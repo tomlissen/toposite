@@ -8,7 +8,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Rusland",
+          "answer": "Rusland",
           "type": "land"
         },
         "geometry": {
@@ -23,7 +23,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Kazachstan",
+          "answer": "Kazachstan",
           "type": "land"
         },
         "geometry": {
@@ -38,7 +38,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Mongolie",
+          "answer": "Mongolie",
           "type": "land"
         },
         "geometry": {
@@ -53,7 +53,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "China",
+          "answer": "China",
           "type": "land"
         },
         "geometry": {
@@ -68,7 +68,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Noord-Korea",
+          "answer": "Noord-Korea",
           "type": "land"
         },
         "geometry": {
@@ -83,7 +83,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Zuid-Korea",
+          "answer": "Zuid-Korea",
           "type": "land"
         },
         "geometry": {
@@ -98,7 +98,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Japan",
+          "answer": "Japan",
           "type": "land"
         },
         "geometry": {
@@ -113,7 +113,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Pakistan",
+          "answer": "Pakistan",
           "type": "land"
         },
         "geometry": {
@@ -128,7 +128,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "India",
+          "answer": "India",
           "type": "land"
         },
         "geometry": {
@@ -143,7 +143,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Nepal",
+          "answer": "Nepal",
           "type": "land"
         },
         "geometry": {
@@ -158,7 +158,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Bhutan",
+          "answer": "Bhutan",
           "type": "land"
         },
         "geometry": {
@@ -173,7 +173,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Bangladesh",
+          "answer": "Bangladesh",
           "type": "land"
         },
         "geometry": {
@@ -188,7 +188,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Myanmar",
+          "answer": "Myanmar",
           "type": "land"
         },
         "geometry": {
@@ -203,7 +203,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Thailand",
+          "answer": "Thailand",
           "type": "land"
         },
         "geometry": {
@@ -218,7 +218,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Laos",
+          "answer": "Laos",
           "type": "land"
         },
         "geometry": {
@@ -233,7 +233,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Vietnam",
+          "answer": "Vietnam",
           "type": "land"
         },
         "geometry": {
@@ -248,7 +248,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Cambodja",
+          "answer": "Cambodja",
           "type": "land"
         },
         "geometry": {
@@ -263,7 +263,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Filipijnen",
+          "answer": "Filipijnen",
           "type": "land"
         },
         "geometry": {
@@ -278,7 +278,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Taiwan",
+          "answer": "Taiwan",
           "type": "land"
         },
         "geometry": {
@@ -293,7 +293,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Maleisie",
+          "answer": "Maleisie",
           "type": "land"
         },
         "geometry": {
@@ -308,7 +308,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Brunei",
+          "answer": "Brunei",
           "type": "land"
         },
         "geometry": {
@@ -323,7 +323,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Singapore",
+          "answer": "Singapore",
           "type": "land"
         },
         "geometry": {
@@ -338,7 +338,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Indonesie",
+          "answer": "Indonesie",
           "type": "land"
         },
         "geometry": {
@@ -353,7 +353,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Sri lanka",
+          "answer": "Sri lanka",
           "type": "land"
         },
         "geometry": {
@@ -368,7 +368,7 @@ const questions: FeatureCollection =
       {
         "type": "Feature",
         "properties": {
-          "Answer": "Oost-Timor",
+          "answer": "Oost-Timor",
           "type": "land"
         },
         "geometry": {
