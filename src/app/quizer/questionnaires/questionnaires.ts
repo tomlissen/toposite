@@ -37,6 +37,7 @@ import {world_azie_landen} from "./35_world_azie_landen"
 import {world_azie_hoofdsteden} from "./36_world_azie_hoofdsteden"
 import {world_azie_wateren_gebieden} from "./37_world_azie_wateren_gebieden"
 import {world_oceanie_landen} from "./38_world_oceanie_landen"
+import {world_oceanie_wateren_gebieden} from "./39_world_oceanie_wateren_gebieden"
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -76,5 +77,6 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   world_azie_landen,
   world_azie_hoofdsteden,
   world_azie_wateren_gebieden,
-  world_oceanie_landen
+  world_oceanie_landen,
+  world_oceanie_wateren_gebieden
 ];
