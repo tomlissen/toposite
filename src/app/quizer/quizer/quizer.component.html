@@ -95,7 +95,7 @@
             <span class="feedback-icon">{{ fb.correct ? '✓' : '✗' }}</span>
             <span>
               @if (fb.correct) { Goed! }
-              @else { Fout — het was <strong>{{ fb.correctAnswer }}</strong> }
+              @else { Fout — jij klikte <strong>{{ fb.givenAnswer }}</strong>, het was <strong>{{ fb.correctAnswer }}</strong> }
             </span>
           </div>
         }
