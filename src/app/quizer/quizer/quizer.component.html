@@ -1,80 +1,174 @@
-<div class="row" style="min-height: 650px">
-    <div class="col-7" [attr.hidden]="(currentlyInGame$ | async) == 'new' ? null : null">
-        <app-map
-                [feature]="(currentQuestion$ | async) || null"
-                (clickedOnAnswer)="clickedOnAnswer($event)"
-                [gameState]="(currentlyInGame$ | async)"
-                [allQuestions]="allQuestions$ | async"
-        ></app-map>
+<!-- ── SCREEN: Quiz selection (no map) ─────────────────────────────────────── -->
+@if ((currentlyInGame$ | async) === 'new') {
+  <div class="selection-screen">
+
+    <div class="selection-header">
+      <p class="eyebrow">Topo Oefenen</p>
+      <h1 class="selection-title">Kies een toets</h1>
     </div>
-    <div class="col-4">
-        <ng-container *ngIf="currentQuestion$ | async as currentQuestion">
 
-          <h3>Uitleg</h3>
-          <li>(Hoofd)steden zijn zwarte bolletjes</li>
-          <li>Provincies zijn paarse bolletjes</li>
-          <li>Gebieden zijn paarse bolletjes</li>
-          <li>Wateren zijn blauwe bolletjes</li>
-          <br><br>
+    <div class="selection-body">
+      <!-- Region tabs -->
+      <div class="region-tabs">
+        @for (group of groups; track group.label) {
+          @if (quizzesForGroup(group.prefix).length > 0) {
+            <button class="region-tab" [class.active]="activeTab === group.label" (click)="activeTab = group.label">
+              {{ group.label }}
+            </button>
+          }
+        }
+        @if (otherQuizzes().length > 0) {
+          <button class="region-tab" [class.active]="activeTab === 'Overig'" (click)="activeTab = 'Overig'">Overig</button>
+        }
+      </div>
 
-          <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingTypeAnswer'">
-              <h2>Wat is de naam van de/het {{currentQuestion.properties['type']}} die Wit is?</h2>
-
-              <form [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
-                        <div class="form-group">
-                            <label for="answer">Antwoord</label>
-                            <input [class.is-valid]="formGroup.get('answer').valid" [class.is-invalid]="!formGroup.get('answer').valid"
-                                   type="text" class="form-control" id="answer" placeholder="Vul hier het antwoord in" formControlName="answer" autocomplete="off">
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Versturen</button>
-                    </form>
-          </ng-container>
-
-          <ng-container *ngIf="(currentlyInGame$ | async) == 'ongoingClickOnMap'">
-            <h2>Klik op de/het {{currentQuestion.properties['type']}} {{currentQuestion.properties['answer']}}</h2>
-          </ng-container>
-            <hr/>
-
-            <p>Deze set bevat {{(allQuestions$ | async).features.length}} vragen</p>
-            <p class="text-success">
-                <fa-icon [icon]="faCheck"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).correct}} vragen goed
-            </p>
-            <p class="text-danger">
-                <fa-icon [icon]="faTimesSquare"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).incorrect}} vragen fout
-            </p>
-
-        </ng-container>
-
-        <ng-container *ngIf="(currentlyInGame$ | async) == 'finished'">
-            <h2>Klaar :)</h2>
-
-            <p>Je hebt de vragenlijst afgerond met een: {{selectScore$ | async}}</p>
-            <p class="text-success">
-                <fa-icon [icon]="faCheck"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).correct}} vragen goed
-            </p>
-            <p class="text-danger">
-                <fa-icon [icon]="faTimesSquare"></fa-icon>&nbsp; Je hebt {{(gameStats$ | async).incorrect}} vragen fout
-            </p>
-
-        </ng-container>
-
-        <ng-container *ngIf="(currentlyInGame$ | async) == 'new'">
-            <h2>Kies een toets</h2>
-
-          <table class="table">
-          <ng-template ngFor let-questionnaire [ngForOf]="questionnaires" let-i="index">
-            <tr>
-              <td>{{questionnaire.title}}</td>
-              <td><button (click)="startQuizer('typeMode', questionnaire.id)" class="btn btn-primary btn-sm">Typen</button></td>
-              <td><button (click)="startQuizer('clickMode', questionnaire.id)" class="btn btn-success btn-sm">Klikken</button></td>
-            </tr>
-          </ng-template>
-          </table>
-        </ng-container>
-
-
+      <!-- Quiz grid -->
+      <div class="quiz-grid">
+        @for (group of groups; track group.label) {
+          @if (activeTab === group.label) {
+            @for (q of quizzesForGroup(group.prefix); track q.id) {
+              <div class="quiz-card">
+                <span class="quiz-card-name">{{ q.title.replace(group.prefix + ' - ', '') }}</span>
+                <div class="quiz-card-actions">
+                  <button (click)="startQuizer('typeMode', q.id)" class="quiz-start-btn type-btn">
+                    <span class="btn-icon">✎</span> Typen
+                  </button>
+                  <button (click)="startQuizer('clickMode', q.id)" class="quiz-start-btn click-btn">
+                    <span class="btn-icon">⊕</span> Klikken
+                  </button>
+                </div>
+              </div>
+            }
+          }
+        }
+        @if (activeTab === 'Overig') {
+          @for (q of otherQuizzes(); track q.id) {
+            <div class="quiz-card">
+              <span class="quiz-card-name">{{ q.title }}</span>
+              <div class="quiz-card-actions">
+                <button (click)="startQuizer('typeMode', q.id)" class="quiz-start-btn type-btn">
+                  <span class="btn-icon">✎</span> Typen
+                </button>
+                <button (click)="startQuizer('clickMode', q.id)" class="quiz-start-btn click-btn">
+                  <span class="btn-icon">⊕</span> Klikken
+                </button>
+              </div>
+            </div>
+          }
+        }
+      </div>
     </div>
-</div>
 
+  </div>
+}
 
+<!-- ── SCREEN: Active quiz + finished (with map) ────────────────────────────── -->
+@if ((currentlyInGame$ | async) !== 'new') {
+  <div class="quiz-layout">
+
+    <div class="quiz-map">
+      <app-map
+        [feature]="(currentQuestion$ | async) || null"
+        (clickedOnAnswer)="clickedOnAnswer($event)"
+        [gameState]="(currentlyInGame$ | async)"
+        [allQuestions]="allQuestions$ | async"
+      ></app-map>
+    </div>
+
+    <aside class="quiz-panel">
+
+      <!-- ── Active quiz ─────────────────────────────────────────────────── -->
+      @if ((currentlyInGame$ | async) === 'ongoingTypeAnswer' || (currentlyInGame$ | async) === 'ongoingClickOnMap') {
+
+        @if (progress$ | async; as progress) {
+          <div class="progress-header">
+            <span class="progress-label">Vraag</span>
+            <span class="progress-count">{{ progress.current + 1 }}<span class="progress-total"> / {{ progress.total }}</span></span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" [style.width.%]="progressPercent(progress)"></div>
+          </div>
+        }
+
+        @if (feedback$ | async; as fb) {
+          <div class="feedback-card" [class.correct]="fb.correct" [class.incorrect]="!fb.correct">
+            <span class="feedback-icon">{{ fb.correct ? '✓' : '✗' }}</span>
+            <span>
+              @if (fb.correct) { Goed! }
+              @else { Fout — het was <strong>{{ fb.correctAnswer }}</strong> }
+            </span>
+          </div>
+        }
+
+        @if (currentQuestion$ | async; as q) {
+          <div class="question-block">
+            @if ((currentlyInGame$ | async) === 'ongoingTypeAnswer') {
+              <p class="question-instruction">Welk <span class="question-type">{{ q.properties['type'] }}</span> licht op?</p>
+              <form [formGroup]="formGroup" (ngSubmit)="handleSubmit()" class="answer-form">
+                <input #answerInput type="text" class="answer-input"
+                       placeholder="Typ het antwoord…"
+                       formControlName="answer" autocomplete="off">
+                <button type="submit" class="answer-submit">→</button>
+              </form>
+            }
+            @if ((currentlyInGame$ | async) === 'ongoingClickOnMap') {
+              <p class="question-instruction">Klik op het/de <span class="question-type">{{ q.properties['type'] }}</span></p>
+              <p class="question-target">{{ q.properties['answer'] }}</p>
+            }
+          </div>
+        }
+
+        <div class="stats-row">
+          <div class="stat correct">
+            <span class="stat-num">{{ (gameStats$ | async).correct }}</span>
+            <span class="stat-label">goed</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat incorrect">
+            <span class="stat-num">{{ (gameStats$ | async).incorrect }}</span>
+            <span class="stat-label">fout</span>
+          </div>
+        </div>
+
+        <button class="btn-back" (click)="goToMenu()">Terug naar overzicht</button>
+
+        <div class="legend-row">
+          <span class="legend-dot dot-black"></span><span>Steden</span>
+          <span class="legend-dot dot-purple"></span><span>Provincies</span>
+          <span class="legend-dot dot-blue"></span><span>Wateren</span>
+          <span class="legend-dot dot-pink"></span><span>Landen</span>
+        </div>
+      }
+
+      <!-- ── Finished ────────────────────────────────────────────────────── -->
+      @if ((currentlyInGame$ | async) === 'finished') {
+        <div class="finished-screen">
+          <p class="eyebrow">Quiz afgerond</p>
+
+          <div class="score-display">
+            <div class="score-number">{{ selectScore$ | async }}</div>
+            <div class="score-denom">/10</div>
+          </div>
+
+          <div class="score-bar-wrap">
+            <div class="score-bar-fill" [style.width.%]="(+(selectScore$ | async)) * 10"></div>
+          </div>
+
+          <div class="result-stats">
+            <div class="result-stat correct">
+              <div class="result-num">{{ (gameStats$ | async).correct }}</div>
+              <div class="result-lbl">goed</div>
+            </div>
+            <div class="result-stat incorrect">
+              <div class="result-num">{{ (gameStats$ | async).incorrect }}</div>
+              <div class="result-lbl">fout</div>
+            </div>
+          </div>
+
+          <button class="btn-primary btn-lg w-full" (click)="goToMenu()">Terug naar overzicht</button>
+        </div>
+      }
+
+    </aside>
+  </div>
+}

@@ -15,9 +15,14 @@ export const quizerAnsweredCorrect = createAction(
 );
 
 export const quizerAnsweredIncorrect = createAction(
-    '[Quizer] Answer incorrectly'
+    '[Quizer] Answer incorrectly',
+    props<{ correctAnswer: string; givenAnswer: string }>()
 );
 
 export const quizerSessionFinished = createAction(
     '[Quizer] Session finished'
+);
+
+export const quizerGoToMenu = createAction(
+    '[Quizer] Go to menu'
 );

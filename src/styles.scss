@@ -1,2 +1,163 @@
-@import 'bootstrap/scss/bootstrap';
+@use 'bootstrap/scss/bootstrap';
 @import "maplibre-gl/dist/maplibre-gl.css";
+
+// ─── Design tokens ────────────────────────────────────────────────────────────
+:root {
+  --bg-base:       #f4f6fb;
+  --bg-surface:    #ffffff;
+  --bg-elevated:   #edf0f7;
+  --border:        #dde2ed;
+  --border-muted:  #e8ecf5;
+  --amber:         #4f46e5;
+  --amber-bright:  #6366f1;
+  --amber-dim:     rgba(79, 70, 229, .08);
+  --ink:           #0d1117;
+  --ink-muted:     #5c6b8a;
+  --ink-faint:     #96a3bb;
+  --green:         #16a34a;
+  --green-dim:     rgba(22, 163, 74, .09);
+  --red:           #dc2626;
+  --red-dim:       rgba(220, 38, 38, .09);
+  --shadow-sm:     0 1px 4px rgba(13, 17, 23, .06), 0 0 0 1px rgba(13,17,23,.04);
+  --shadow-md:     0 4px 20px rgba(13, 17, 23, .10);
+  --font-display:  'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:     'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+  --radius:        8px;
+  --radius-lg:     14px;
+  --transition:    160ms ease;
+}
+
+// ─── Base ─────────────────────────────────────────────────────────────────────
+html, body {
+  height: 100%;
+  background: var(--bg-base) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-body) !important;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+app-root { display: block; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0;
+}
+
+// ─── Form overrides ───────────────────────────────────────────────────────────
+.form-control, .form-select {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-body);
+  font-size: .85rem;
+
+  &:focus {
+    background-color: var(--bg-surface) !important;
+    border-color: var(--amber) !important;
+    box-shadow: 0 0 0 3px var(--amber-dim) !important;
+    color: var(--ink) !important;
+    outline: none;
+  }
+
+  &::placeholder { color: var(--ink-faint) !important; }
+}
+
+.form-label {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: .3rem;
+}
+
+// ─── Button overrides ─────────────────────────────────────────────────────────
+.btn {
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  transition: all var(--transition);
+  border-radius: var(--radius);
+}
+
+.btn-primary {
+  background-color: var(--amber) !important;
+  border-color: var(--amber) !important;
+  color: #fff !important;
+  &:hover { background-color: var(--amber-bright) !important; border-color: var(--amber-bright) !important; }
+  &:focus { box-shadow: 0 0 0 3px var(--amber-dim) !important; }
+  &:disabled { opacity: .4; }
+}
+
+.btn-outline-primary {
+  border-color: var(--amber) !important;
+  color: var(--amber) !important;
+  background: transparent !important;
+  &:hover { background-color: var(--amber-dim) !important; }
+}
+
+.btn-outline-success {
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+  background: transparent !important;
+  &:hover { background-color: var(--green-dim) !important; }
+}
+
+.btn-outline-secondary {
+  border-color: var(--border) !important;
+  color: var(--ink-muted) !important;
+  background: transparent !important;
+  &:hover { border-color: var(--ink-muted) !important; color: var(--ink) !important; }
+}
+
+.btn-outline-danger {
+  border-color: var(--red) !important;
+  color: var(--red) !important;
+  background: transparent !important;
+  &:hover { background-color: var(--red-dim) !important; }
+}
+
+.btn-success {
+  background-color: var(--green) !important;
+  border-color: var(--green) !important;
+  color: #fff !important;
+  font-weight: 600;
+  &:hover { filter: brightness(1.08); }
+}
+
+.btn-sm { padding: .25rem .65rem; font-size: .75rem; }
+.btn-lg { padding: .65rem 1.75rem; font-size: .9rem; }
+
+// ─── Alert overrides ──────────────────────────────────────────────────────────
+.alert-success { background: var(--green-dim) !important; border-color: var(--green) !important; color: var(--green) !important; }
+.alert-danger  { background: var(--red-dim) !important;   border-color: var(--red) !important;   color: var(--red) !important; }
+.alert-info    { background: rgba(80,130,200,.08) !important; border-color: #6090d0 !important; color: #3060b0 !important; }
+
+// ─── Progress overrides ───────────────────────────────────────────────────────
+.progress { background-color: var(--border) !important; }
+.progress-bar { background-color: var(--amber) !important; }
+
+// ─── Utility overrides ────────────────────────────────────────────────────────
+.text-muted   { color: var(--ink-muted) !important; }
+.text-success { color: var(--green) !important; }
+.text-danger  { color: var(--red) !important; }
+.border-top   { border-color: var(--border) !important; }
+
+code {
+  font-family: var(--font-mono);
+  color: var(--amber);
+  background: var(--amber-dim);
+  padding: .1rem .35rem;
+  border-radius: 4px;
+  font-size: .8rem;
+}
+
+// ─── Scrollbar ────────────────────────────────────────────────────────────────
+* { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }

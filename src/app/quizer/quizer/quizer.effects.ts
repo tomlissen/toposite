@@ -18,24 +18,17 @@ export class QuizerEffects {
         private readonly store: Store<RootState>,
         private actions$: Actions
     ) {
-
     }
 
     handleQuestionAnswer$ = createEffect(() => this.actions$.pipe(
         ofType(quizerSubmitQuestionAnswer),
         withLatestFrom(this.currentQuestion$, this.currentlyInGame$),
-        map(([{answer}, currentQuestion, gameState]) => {
-            const answerMatched = currentQuestion?.properties['answer'] == answer;
-            if (!answerMatched)
-            {
-              if (gameState === 'ongoingClickOnMap'){
-                alert('Fout, je klikte op: ' + answer);
-              }
-              if (gameState === 'ongoingTypeAnswer'){
-                alert('Fout, het juiste antwoord is: ' + currentQuestion?.properties['answer']);
-              }
-            }
-            return answerMatched ? quizerAnsweredCorrect() : quizerAnsweredIncorrect();
+        map(([{answer}, currentQuestion]) => {
+            const correctAnswer: string = currentQuestion?.properties?.['answer'] ?? '';
+            const answerMatched = correctAnswer === answer;
+            return answerMatched
+                ? quizerAnsweredCorrect()
+                : quizerAnsweredIncorrect({ correctAnswer, givenAnswer: answer });
         })
     ))
 
