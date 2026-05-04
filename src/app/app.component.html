@@ -1,18 +1,23 @@
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap"/>
-            </svg>
-            <span class="fs-4">Topo Oefenen</span>
-        </a>
+<div class="app-shell">
+  <header class="app-header">
+    <a routerLink="/" class="app-logo" (click)="goHome()">
+      <svg class="logo-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1"/>
+        <path d="M12 2 Q14 7 12 12 Q10 17 12 22" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M2 12 Q7 10 12 12 Q17 14 22 12" stroke="currentColor" stroke-width="1" fill="none"/>
+        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-title">Topo Oefenen</span>
+      </div>
+    </a>
 
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="/toposite/" class="nav-link active" aria-current="page">Hoofdpagina</a></li>
-        </ul>
-    </header>
+    <nav class="app-nav">
+      <button class="nav-link home-btn" (click)="goHome()" title="Home">⌂</button>
+    </nav>
+  </header>
 
+  <main class="app-main">
     <router-outlet></router-outlet>
+  </main>
 </div>
-
-
