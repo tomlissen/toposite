@@ -95,7 +95,8 @@
             <span class="feedback-icon">{{ fb.correct ? '✓' : '✗' }}</span>
             <span>
               @if (fb.correct) { Goed! }
-              @else { Fout — jij klikte <strong>{{ fb.givenAnswer }}</strong>, het was <strong>{{ fb.correctAnswer }}</strong> }
+              @else if ((currentlyInGame$ | async) === 'ongoingTypeAnswer') { Fout,  het juiste antwoord is: <strong>{{ fb.correctAnswer }}</strong> }
+              @else { Fout,  je klikte op: <strong>{{ fb.givenAnswer }}</strong> }
             </span>
           </div>
         }
