@@ -1,0 +1,86 @@
+<div class="editor-layout">
+
+  <!-- ── Map ────────────────────────────────────────────────────────────── -->
+  <div class="editor-map">
+    <div #map class="map"></div>
+
+    <!-- Mode badge -->
+    <div class="mode-badge" [class.polygon-mode]="drawMode === 'polygon'">
+      @if (drawMode === 'point') { ● Punt modus }
+      @else { ◆ Polygoon modus — dubbelklik om te sluiten
+        <button class="cancel-btn" (click)="cancelPolygon()">annuleer</button>
+      }
+    </div>
+  </div>
+
+  <!-- ── Side panel ─────────────────────────────────────────────────────── -->
+  <aside class="editor-panel">
+
+    <!-- Header -->
+    <div class="panel-header">
+      <p class="panel-eyebrow">Quiz editor</p>
+      <h2 class="panel-title">Nieuwe quiz</h2>
+    </div>
+
+    <!-- Meta -->
+    <div class="field-group">
+      <label class="field-label">Titel</label>
+      <input type="text" class="field-input" [(ngModel)]="quizTitle" placeholder="bijv. Europa – Landen">
+    </div>
+    <div class="field-group">
+      <label class="field-label">Quiz ID</label>
+      <input type="number" class="field-input" [(ngModel)]="nextId">
+    </div>
+
+    <!-- Draw mode -->
+    <div class="draw-toggle">
+      <button class="draw-btn" [class.active]="drawMode === 'point'" (click)="setDrawMode('point')">
+        <span class="draw-icon">●</span> Punt
+      </button>
+      <button class="draw-btn" [class.active]="drawMode === 'polygon'" (click)="setDrawMode('polygon')">
+        <span class="draw-icon">◆</span> Polygoon
+      </button>
+    </div>
+
+    <!-- Feature list -->
+    <div class="section-label">
+      {{ features.length }} {{ features.length === 1 ? 'element' : 'elementen' }}
+    </div>
+
+    <div class="feature-list">
+      @for (f of features; track trackById($index, f)) {
+        <div class="feature-card">
+          <div class="feature-card-top">
+            <span class="feature-type-badge">{{ f.geometry.type === 'Point' ? '●' : '◆' }}</span>
+            <button class="delete-btn" (click)="deleteFeature(f.id)" title="Verwijderen">✕</button>
+          </div>
+          <input type="text" class="field-input field-input-sm"
+                 [(ngModel)]="f.answer" placeholder="Antwoord…">
+          <select class="field-select" [(ngModel)]="f.featureType">
+            @for (t of featureTypes; track t) {
+              <option [value]="t">{{ t }}</option>
+            }
+          </select>
+        </div>
+      }
+    </div>
+
+    <!-- Generate -->
+    <div class="generate-section">
+      <button class="generate-btn"
+              [disabled]="!quizTitle || features.length === 0"
+              (click)="generateCode()">
+        Genereer code
+      </button>
+
+      @if (generatedCode) {
+        <div class="code-header">
+          <span class="section-label" style="margin:0">Kopieer naar <code>questionnaires/</code></span>
+          <button class="copy-btn" (click)="copyCode()">{{ copied ? '✓ Gekopieerd' : 'Kopieer' }}</button>
+        </div>
+        <textarea class="code-output" [value]="generatedCode" readonly rows="10"></textarea>
+      }
+    </div>
+
+  </aside>
+</div>
