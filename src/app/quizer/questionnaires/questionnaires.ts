@@ -42,6 +42,7 @@ import {world_zuid_amerika_landen} from "./40_world_zuid_amerika_landen"
 import {world_zuid_amerika_hoofdsteden} from "./41_world_zuid_amerika_hoofdsteden"
 import {world_midden_oosten_landen} from "./42_world_midden_oosten_landen"
 import {world_midden_oosten_hoofdsteden} from "./43_world_midden_oosten_hoofdsteden"
+import {world_midden_oosten_wateren_gebieden} from "./44_world_midden_oosten_wateren_en_gebieden"
 
 export const questionnaires: QuizerQuestionnaireDTO[] = [
   nl_provinces,
@@ -86,5 +87,6 @@ export const questionnaires: QuizerQuestionnaireDTO[] = [
   world_zuid_amerika_landen,
   world_zuid_amerika_hoofdsteden,
   world_midden_oosten_landen,
-  world_midden_oosten_hoofdsteden
+  world_midden_oosten_hoofdsteden,
+  world_midden_oosten_wateren_gebieden
 ];

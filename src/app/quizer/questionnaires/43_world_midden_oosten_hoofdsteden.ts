@@ -299,17 +299,6 @@ const questions: FeatureCollection =
       },
       {
         "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            64.7200868,
-            32.5974963
-          ]
-        }
-      },
-      {
-        "type": "Feature",
         "properties": {
           "answer": "Teheran",
           "type": "stad"
@@ -329,7 +318,7 @@ const questions: FeatureCollection =
 
 //Mapbounds are southwestern | northeastern corner of the bounds
 export const world_midden_oosten_hoofdsteden: QuizerQuestionnaireDTO = {
-  id: 42,
+  id: 43,
   title: 'Wereld - Midden Oosten Hoofdsteden',
   questions: questions,
   mapBounds: [[33.8326292, 9.1760537], [81.725066, 43.8324903]]
